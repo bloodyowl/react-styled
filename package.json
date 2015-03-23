@@ -1,6 +1,6 @@
 {
   "name": "bloody-react-styled",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "styled component for react & style-loader/usable",
   "main": "./dist/index.js",
   "scripts": {
@@ -20,6 +20,11 @@
     "styled",
     "style-loader",
     "webpack"
+  ],
+  "files" : [
+    "README.md",
+    "LICENSE",
+    "dist/index.js"
   ],
   "author": "bloodyowl",
   "license": "MIT",
