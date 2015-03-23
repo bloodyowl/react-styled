@@ -50,7 +50,7 @@ const config = {
           // use the useable to only use the stylesheet when necessary
           "style/useable",
           "css",
-          // example post-processor you might want to use
+          // example of css processor you might want to use
           "cssnext",
         ],
       },
