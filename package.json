@@ -1,0 +1,40 @@
+{
+  "name": "react-styled",
+  "version": "1.0.0",
+  "description": "styled component for react & style-loader/usable",
+  "main": "webpack.config.js",
+  "scripts": {
+    "clean" : "babel-node -r -g ./scripts/clean",
+    "prebuild" : "npm run clean",
+    "build" : "babel-node -r -g ./scripts/build",
+    "pretest" : "npm run clean",
+    "test": "babel-node -r -g ./scripts/test && testem ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:bloodyowl/react-styled"
+  },
+  "keywords": [
+    "react",
+    "styled",
+    "style-loader",
+    "webpack"
+  ],
+  "author": "bloodyowl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bloodyowl/react-styled/issues"
+  },
+  "homepage": "https://github.com/bloodyowl/react-styled",
+  "devDependencies": {
+    "babel": "^4.7.16",
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "es5-shim": "^4.1.0",
+    "react": "^0.13.1",
+    "rimraf": "^2.3.2",
+    "tape": "^3.5.0",
+    "testem": "^0.7.6",
+    "webpack": "^1.7.3"
+  }
+}
