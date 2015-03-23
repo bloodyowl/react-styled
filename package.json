@@ -9,7 +9,7 @@
     "build" : "babel-node -r -g ./scripts/build",
     "pretest" : "npm run clean",
     "test": "babel-node -r -g ./scripts/test && testem ci",
-    "publish" : "npm test && npm build && npm publish"
+    "publish" : "npm test && npm run build && npm publish"
   },
   "repository": {
     "type": "git",
