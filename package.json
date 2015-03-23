@@ -1,5 +1,5 @@
 {
-  "name": "react-styled",
+  "name": "bloody-react-styled",
   "version": "1.0.0",
   "description": "styled component for react & style-loader/usable",
   "main": "webpack.config.js",
