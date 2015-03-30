@@ -1,15 +1,15 @@
 {
   "name": "bloody-react-styled",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "styled component for react & style-loader/usable",
   "main": "./dist/index.js",
   "scripts": {
-    "clean" : "babel-node -r -g ./scripts/clean",
-    "prebuild" : "npm run clean",
-    "build" : "babel-node -r -g ./scripts/build",
-    "pretest" : "npm run clean",
+    "clean": "babel-node -r -g ./scripts/clean",
+    "prebuild": "npm run clean",
+    "build": "babel-node -r -g ./scripts/build",
+    "pretest": "npm run clean",
     "test": "babel-node -r -g ./scripts/test && testem ci",
-    "bump" : "npm test && npm run build && npm publish"
+    "bump": "npm test && npm run build && npm publish"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
     "style-loader",
     "webpack"
   ],
-  "files" : [
+  "files": [
     "README.md",
     "LICENSE",
     "dist/index.js"
@@ -37,6 +37,7 @@
     "babel-core": "^4.7.16",
     "babel-loader": "^4.2.0",
     "es5-shim": "^4.1.0",
+    "object-assign": "^2.0.0",
     "react": "^0.13.1",
     "rimraf": "^2.3.2",
     "tape": "^3.5.0",

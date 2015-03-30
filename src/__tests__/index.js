@@ -27,6 +27,7 @@ tape("Styled", (test) => {
   class TestComponent extends Component {
 
     static styles = mockStyles
+    static foo = "bar"
 
     componentDidMount() {
       setTimeout(() => {
@@ -41,11 +42,7 @@ tape("Styled", (test) => {
     }
   }
   const TestStyledComponent = Styled(TestComponent)
-  test.equal(
-    TestStyledComponent.component,
-    TestComponent,
-    "StyledComponent keeps a reference to Component in its statics"
-  )
+  test.equal(TestStyledComponent.foo, "bar", "statics are copied")
   const testNode = document.createElement("div")
   React.render(<TestStyledComponent />, testNode)
 })

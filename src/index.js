@@ -11,9 +11,7 @@ const Styled = (StyledComponent) => {
 
   const styles = StyledComponent.styles
 
-  return class Styled extends Component {
-
-    static component = StyledComponent
+  class Styled extends Component {
 
     componentWillMount() {
       styles.use()
@@ -27,6 +25,10 @@ const Styled = (StyledComponent) => {
       return <StyledComponent {...this.props} />
     }
   }
+
+  Object.assign(Styled, StyledComponent)
+
+  return Styled
 }
 
 Styled.version = __VERSION__
