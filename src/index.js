@@ -7,25 +7,30 @@ const Styled = (StyledComponent) => {
     )
   }
 
-  class Styled extends StyledComponent {
+  const componentWillMount = StyledComponent.componentWillMount
+  const componentWillUnmount = StyledComponent.componentWillUnmount
 
-    componentWillMount() {
-      this.constructor.styles.use()
-      if(super.componentWillMount) {
-        super.componentWillMount()
+  Object.assign(
+    StyledComponent.prototype,
+    {
+      componentWillMount() {
+        this.constructor.styles.use()
+        if(componentWillMount) {
+          componentWillMount.call(this)
+        }
+      },
+
+      componentWillUnmount() {
+        if(componentWillUnmount) {
+          componentWillUnmount.call(this)
+        }
+        this.constructor.styles.unuse()
       }
     }
+  )
 
-    componentWillUnmount() {
-      if(super.componentWillUnmount) {
-        super.componentWillUnmount()
-      }
-      this.constructor.styles.unuse()
-    }
+  return StyledComponent
 
-  }
-
-  return Styled
 }
 
 Styled.version = __VERSION__
