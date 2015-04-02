@@ -24,12 +24,18 @@ tape("Styled", (test) => {
       test.equal(--used, 0)
     }
   }
+  let componentWillMountCalled = false
   class TestComponent extends Component {
 
     static styles = mockStyles
     static foo = "bar"
 
+    componentWillMount() {
+      componentWillMountCalled = true
+    }
+
     componentDidMount() {
+      test.equal(componentWillMountCalled, true)
       setTimeout(() => {
         React.unmountComponentAtNode(testNode)
       }, 50)

@@ -7,8 +7,10 @@ const Styled = (StyledComponent) => {
     )
   }
 
-  const componentWillMount = StyledComponent.componentWillMount
-  const componentWillUnmount = StyledComponent.componentWillUnmount
+  const componentWillMount =
+    StyledComponent.prototype.componentWillMount
+  const componentWillUnmount =
+    StyledComponent.prototype.componentWillUnmount
 
   Object.assign(
     StyledComponent.prototype,
