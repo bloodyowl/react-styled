@@ -7,7 +7,7 @@ import Styled, {version} from ".."
 
 tape("Styled", (test) => {
 
-  test.plan(4)
+  test.plan(6)
 
 
   test.equal(
@@ -34,8 +34,18 @@ tape("Styled", (test) => {
       componentWillMountCalled = true
     }
 
+    componentWillUnmount() {
+      test.pass(
+        "componentWillUnmount is called"
+      )
+    }
+
     componentDidMount() {
-      test.equal(componentWillMountCalled, true)
+      test.equal(
+        componentWillMountCalled,
+        true,
+        "componentWillMount is called"
+      )
       setTimeout(() => {
         React.unmountComponentAtNode(testNode)
       }, 50)
