@@ -1,5 +1,3 @@
-import React, {Component} from "react"
-
 const Styled = (StyledComponent) => {
 
   if(StyledComponent.styles == null) {
@@ -9,24 +7,23 @@ const Styled = (StyledComponent) => {
     )
   }
 
-  const styles = StyledComponent.styles
-
-  class Styled extends Component {
+  class Styled extends StyledComponent {
 
     componentWillMount() {
-      styles.use()
+      this.constructor.styles.use()
+      if(super.componentWillMount) {
+        super.componentWillMount()
+      }
     }
 
     componentWillUnmount() {
-      styles.unuse()
+      if(super.componentWillUnmount) {
+        super.componentWillUnmount()
+      }
+      this.constructor.styles.unuse()
     }
 
-    render() {
-      return <StyledComponent {...this.props} />
-    }
   }
-
-  Object.assign(Styled, StyledComponent)
 
   return Styled
 }
