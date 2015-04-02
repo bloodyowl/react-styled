@@ -1,6 +1,6 @@
 {
   "name": "bloody-react-styled",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "styled component for react & style-loader/usable",
   "main": "./dist/index.js",
   "scripts": {
