@@ -1,6 +1,6 @@
 # react-styled
 
-> higher-order-component for dynamic stylesheet usage w/ webpack
+> ES7 decorator for dynamic stylesheet usage w/ webpack
 
 [![Build Status](https://travis-ci.org/bloodyowl/react-styled.svg?branch=master)](https://travis-ci.org/bloodyowl/react-styled)
 
