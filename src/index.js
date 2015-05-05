@@ -1,40 +1,41 @@
-const Styled = (StyledComponent) => {
+export default (styles) => {
 
-  if(StyledComponent.styles == null) {
+  if(styles == null) {
     throw new TypeError(
-      `StyledComponent: missing \`styles\` static property. ` +
-      `check ${ StyledComponent.name }'s statics`
+      `bloody-react-styled: missing \`styles\` static property. ` +
+      `check ${ StyledComponent.name }`
     )
   }
 
-  const componentWillMount =
-    StyledComponent.prototype.componentWillMount
-  const componentWillUnmount =
-    StyledComponent.prototype.componentWillUnmount
+  return (StyledComponent) => {
 
-  Object.assign(
-    StyledComponent.prototype,
-    {
-      componentWillMount() {
-        this.constructor.styles.use()
-        if(componentWillMount) {
-          componentWillMount.call(this)
-        }
-      },
+    const componentWillMount =
+      StyledComponent.prototype.componentWillMount
+    const componentWillUnmount =
+      StyledComponent.prototype.componentWillUnmount
 
-      componentWillUnmount() {
-        if(componentWillUnmount) {
-          componentWillUnmount.call(this)
-        }
-        this.constructor.styles.unuse()
+    Object.assign(
+      StyledComponent.prototype,
+      {
+        componentWillMount() {
+          styles.use()
+          if(componentWillMount) {
+            componentWillMount.call(this)
+          }
+        },
+
+        componentWillUnmount() {
+          if(componentWillUnmount) {
+            componentWillUnmount.call(this)
+          }
+          styles.unuse()
+        },
       }
-    }
-  )
+    )
 
-  return StyledComponent
+    return StyledComponent
+  }
 
 }
 
-Styled.version = __VERSION__
-
-export default Styled
+export const version = __VERSION__

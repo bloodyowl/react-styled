@@ -3,7 +3,7 @@ import React, {Component, addons} from "react/addons"
 
 const TestUtils = addons.TestUtils
 
-import Styled, {version} from ".."
+import styled, {version} from ".."
 
 tape("Styled", (test) => {
 
@@ -25,9 +25,10 @@ tape("Styled", (test) => {
     }
   }
   let componentWillMountCalled = false
+
+  @styled(mockStyles)
   class TestComponent extends Component {
 
-    static styles = mockStyles
     static foo = "bar"
 
     componentWillMount() {
@@ -57,8 +58,7 @@ tape("Styled", (test) => {
       )
     }
   }
-  const TestStyledComponent = Styled(TestComponent)
-  test.equal(TestStyledComponent.foo, "bar", "statics are copied")
+  test.equal(TestComponent.foo, "bar", "statics are copied")
   const testNode = document.createElement("div")
-  React.render(<TestStyledComponent />, testNode)
+  React.render(<TestComponent />, testNode)
 })

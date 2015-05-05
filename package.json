@@ -1,14 +1,14 @@
 {
   "name": "bloody-react-styled",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "styled component for react & style-loader/usable",
   "main": "./dist/index.js",
   "scripts": {
-    "clean": "babel-node -r -g ./scripts/clean",
+    "clean": "babel-node --stage 0 ./scripts/clean",
     "prebuild": "npm run clean",
-    "build": "babel-node -r -g ./scripts/build",
+    "build": "babel-node --stage 0 ./scripts/build",
     "pretest": "npm run clean",
-    "test": "babel-node -r -g ./scripts/test && testem ci",
+    "test": "babel-node --stage 0 ./scripts/test && testem ci",
     "bump": "npm test && npm run build && npm publish"
   },
   "repository": {
@@ -33,9 +33,9 @@
   },
   "homepage": "https://github.com/bloodyowl/react-styled",
   "devDependencies": {
-    "babel": "^4.7.16",
-    "babel-core": "^4.7.16",
-    "babel-loader": "^4.2.0",
+    "babel": "^5.2.13",
+    "babel-core": "^5.2.13",
+    "babel-loader": "^5.0.0",
     "es5-shim": "^4.1.0",
     "object-assign": "^2.0.0",
     "react": "^0.13.1",
