@@ -38,7 +38,7 @@ const config = {
       {
         test : /\.js$/,
         loaders : [
-          "babel?experimental&playground",
+          "babel?stage=0",
         ],
         exclude : /node_modules/,
       },

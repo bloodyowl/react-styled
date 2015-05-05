@@ -13,21 +13,18 @@ $ npm install bloody-react-styled --save-dev
 ## require
 
 ```javascript
-import Styled from "bloody-react-styled"
+import styled from "bloody-react-styled"
 ```
 
 ## API
 
-### Styled(Component) > StyledComponent
+### @styled(styles) class
 
-creates a new component that `uses` a given stylesheet just before mount,
-and stops using it when the component unmounts.
+styled is a ES7 decorator that applies useable style only if at least one
+instance of the component it is attached to is in mounted,
+and removes it when there are no more instances.
 
-with multiple components, the stylesheet is only removed when the last
-component using it is unmounted.
-
-the `Component` must contain a `styles` static property containing the
-`style-loader/useable` instance.
+## how to
 
 first, install `style-loader`, `css-loader` and possibility the loader
 of your choice for a pre/post-processor.
@@ -64,13 +61,12 @@ then you can do
 
 ```javascript
 import React, {Component} from "react"
-import Styled from "bloody-react-styled"
+import styled from "bloody-react-styled"
 
 import styles from "./styles.css"
 
+@styled(styles)
 class MyComponent extends Component {
-
-  static styles = styles
 
   render() {
     return (
@@ -81,14 +77,7 @@ class MyComponent extends Component {
   }
 }
 
-export default Styled(MyComponent)
+export default MyComponent
 ```
-
-## accessing your styled component
-
-the component returned by `Styled` will contain a `component` static
-property which contains the wrapped component.
-
-this can be useful in case it also contains a static for data-fetching.
 
 ## [license](LICENSE)
