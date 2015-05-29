@@ -80,4 +80,38 @@ class MyComponent extends Component {
 export default MyComponent
 ```
 
+## local stylesheets with css-loader
+
+### css
+
+```css
+:local .default {
+  padding: 1rem;
+}
+```
+
+### js
+
+```javascript
+import React, {Component} from "react"
+import styled from "bloody-react-styled"
+
+import styles from "./styles.css"
+
+@styled(styles)
+class MyComponent extends Component {
+
+  render() {
+    const {locals} = styles
+    return (
+      <div className={locals.default}>
+        will be styled!
+      </div>
+    )
+  }
+}
+
+export default MyComponent
+```
+
 ## [license](LICENSE)
