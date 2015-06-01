@@ -43,7 +43,7 @@ const config = {
       // ...
       {
         test : /\.css$/,
-        loaders [
+        loaders: [
           // use the useable to only use the stylesheet when necessary
           "style/useable",
           "css",
